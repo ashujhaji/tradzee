@@ -14,6 +14,7 @@ class PlaceOrderDialog : BaseMvpDialogFragment<PlaceOrderContract.View, PlaceOrd
     PlaceOrderContract.View, View.OnClickListener {
     override var presenter: PlaceOrderPresenter = PlaceOrderPresenter()
     private lateinit var stock: Stocks
+    private var order = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +30,7 @@ class PlaceOrderDialog : BaseMvpDialogFragment<PlaceOrderContract.View, PlaceOrd
         val bundle = this.arguments
         if (bundle != null) {
             stock = bundle.getSerializable("stock") as Stocks
+            order = bundle.getString("orderType")!!
             orderType.text = bundle.getString("orderType")
             confirmOrder.setOnClickListener(this)
         }
@@ -39,12 +41,22 @@ class PlaceOrderDialog : BaseMvpDialogFragment<PlaceOrderContract.View, PlaceOrd
         when (v!!.id) {
             R.id.confirmOrder -> {
                 if (quantity.text.toString().isNotEmpty() && cost.text.toString().isNotEmpty()) {
-                    dismiss()
+                    presenter.placeOrder(
+                        context!!,
+                        stock,
+                        order,
+                        quantity.text.toString(),
+                        cost.text.toString()
+                    )
                 } else Toast.makeText(context!!, "Fields are empty", Toast.LENGTH_LONG).show()
             }
         }
     }
 
+    override fun onOrderedSuccess() {
+        Toast.makeText(context!!, "Order placed", Toast.LENGTH_SHORT).show()
+        dismiss()
+    }
 
     companion object {
 
