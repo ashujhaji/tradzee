@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Tradzee</string>
+    <string name="welcome_to">Welcome to Tradzee</string>
+    <string name="login_username_msg">Enter your username</string>
+    <string name="password">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="orders">Orders</string>
+    <string name="profile">Profile</string>
+    <string name="price">Price:</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="enter_qty">Enter quantity</string>
+    <string name="enter_cost">Enter cost</string>
+    <string name="confirm_order">Confirm order</string>
+</resources>
