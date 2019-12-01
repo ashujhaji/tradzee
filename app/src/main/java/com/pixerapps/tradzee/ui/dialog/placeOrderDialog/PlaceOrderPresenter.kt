@@ -17,6 +17,8 @@ class PlaceOrderPresenter : BaseMvpPresenterImpl<PlaceOrderContract.View>(),
         cost: String
     ) {
         val order = Order()
+        order.id = stock.id
+        order.name = stock.name
         order.cost = cost
         order.quantity = quantity
         order.orderType = orderType

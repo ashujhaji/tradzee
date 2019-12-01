@@ -13,4 +13,5 @@
     <string name="enter_qty">Enter quantity</string>
     <string name="enter_cost">Enter cost</string>
     <string name="confirm_order">Confirm order</string>
+    <string name="order_type">Order type:</string>
 </resources>

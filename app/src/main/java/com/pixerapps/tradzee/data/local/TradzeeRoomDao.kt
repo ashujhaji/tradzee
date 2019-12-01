@@ -15,5 +15,5 @@ interface TradzeeRoomDao {
     fun insertOrder(order: Order)
 
     @Query("SELECT * FROM orders ORDER BY createdAt")
-    fun getSearchHistory(): List<Order>
+    fun getOrders(): List<Order>
 }
